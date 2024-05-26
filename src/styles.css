@@ -1,0 +1,361 @@
+body {
+    height: 100%;
+    background-color: #1e1e1e;
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 1200px; /* Ajusta a altura para ocupar toda a viewport */
+    width: 100%;
+    padding-top: 50px; /* Adiciona um espaço na parte superior */
+    position: relative;
+}
+
+.content-box {
+    background-color: #2a2a2a;
+    border-radius: 10px;
+    padding: 20px 40px;
+    width: 1100px;
+    height: 1100px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    position: relative;
+}
+
+h1, h2, h3 {
+    color: #ffffff;
+}
+
+p {
+    color: #cccccc;
+}
+
+a {
+    color: #9b9b9b;
+}
+
+a:hover {
+    color: #ffffff;
+}
+
+.create-button {
+    position: absolute;
+    top: 20px;
+    right: 20px; /* Posiciona no lado direito */
+    background-color: #007bff;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fundo semi-transparente */
+    z-index: 9999; /* Garante que o modal esteja na frente de todo o conteúdo */
+}
+
+.modal-content {
+    display: flex; /* Ativa o layout flexível */
+    flex-direction: column; /* Define a direção dos itens como coluna */
+    align-items: flex-start; /* Alinha os itens à esquerda */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #2a2a2a;
+    border-radius: 10px;
+    padding: 80px;
+    max-width: 80%; /* Define a largura máxima do modal */
+    max-height: 80%; /* Define a altura máxima do modal */
+    overflow: auto; /* Habilita a rolagem caso o conteúdo seja maior que o modal */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: transparent;
+    color: #ffffff;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.form-group {
+    margin-bottom: 20px; /* Adiciona espaço entre cada grupo de formulário */
+}
+
+input[type="text"] {
+  width: 800px; /* Ajusta a largura para ocupar todo o espaço disponível, menos o padding */
+    background-color: #1e1e1e; /* Altere para a cor desejada */
+    color: #ffffff; 
+    border: none; /* Remove a borda padrão */
+    padding: 8px; /* Adiciona algum preenchimento para melhorar a aparência */
+    border-radius: 5px; /* Adiciona cantos arredondados */
+}
+
+.edit-modal, .add-modal,
+.start-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fundo semi-transparente */
+    z-index: 9999;  /*Garante que o modal esteja na frente de todo o conteúdo*/
+}
+
+.save-button, .save-edit-button,
+.save-add-button {
+    position: absolute;
+    bottom: 40px;
+    background-color: #007bff;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.flashcards-section {
+    display: flex; /* Adiciona display flex para alinhar os elementos horizontalmente */
+    justify-content: space-between; /* Distribui os elementos igualmente ao longo do eixo principal */
+    align-items: center; /* Centraliza verticalmente os elementos */
+    position: relative;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.add-flashcard {
+    background-color: #e63946;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start; /* Ajusta o alinhamento inicial para o começo do container */
+    margin-left: 50px;
+    margin-top: 30px;
+}
+
+.card {
+    position: relative; /* Adiciona posição relativa para os cards */
+    background-color: #2a2a2a;
+    border-radius: 10px;
+    padding: 40px;
+    margin: 0 30px 20px 0; /* Adiciona espaçamento entre os cards */
+    width: 150px;
+    height: 200px;
+    /*width: calc(25% - 20px); /* Definindo a largura de cada card para 25% menos a margem */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    overflow: hidden; /* Garante que os botões não ultrapassem os limites do card */
+}
+
+.delete-button {
+    position: absolute;
+    top: 20px;
+    right: 20px; /* Posiciona o botão de delete na parte superior direita do card */
+    background-color: transparent;
+    color: #A9A9A9;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.edit-button {
+    position: absolute;
+    bottom: 20px;
+    left: 113px; /* Posiciona o botão de edit na parte inferior esquerda do card */
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    font-size: 18px;
+    font-family: Arial, sans-serif;
+    border-radius: 5px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.start-button {
+    position: absolute;
+    bottom: 20px;
+    left: 17px; /* Posiciona o botão de edit na parte inferior esquerda do card */
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    font-size: 18px;
+    font-family: Arial, sans-serif;
+    border-radius: 5px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.flashcard {
+    position: relative; /* Adiciona posição relativa para permitir o posicionamento absoluto do botão */
+    background-color: #2a2a2a;
+    border-radius: 5px;
+    padding: 20px;
+    width: 770px;
+    margin-bottom: 10px; /* Adiciona espaço entre os retângulos */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    overflow: hidden; /* Garante que os botões não ultrapassem os limites do retângulo */
+}
+
+.flashcard-name {
+    color: #ffffff;
+}
+
+.delete-flashcard-button {
+    position: absolute;
+    top: 50%; /* Posiciona o botão de delete na metade da altura do retângulo */
+    right: 10px; /* Posiciona o botão de delete na parte direita */
+    transform: translateY(-50%); /* Ajusta o posicionamento vertical para o centro */
+    background-color: transparent;
+    color: #A9A9A9;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* Estilos para o container de paginação */
+#pagination-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+/* Estilos para os botões de página */
+#prev-page, #next-page {
+    margin: 0 10px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#prev-page:hover, #next-page:hover {
+    background-color: #0056b3;
+}
+
+.rectangle {
+    width: 300px;
+    height: 200px;
+    position: relative;
+    perspective: 1000px;
+    margin: 50px auto;
+}
+
+.front, .back {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+  }
+  
+  .front {
+    background-color: #777777;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transform: rotateY(0deg);
+    transition: transform 0.5s ease;
+  }
+  
+  .back {
+    background-color: #365458;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transform: rotateY(180deg);
+    transition: transform 0.5s ease;
+  }
+  
+  .flipped .front {
+    transform: rotateY(-180deg);
+  }
+  
+  .flipped .back {
+    transform: rotateY(0deg);
+  }
+  
+  #flip-button {
+    position: absolute;
+    top: 160px;
+    right: 120px;
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    font-size: 15px;
+    font-family: Arial, sans-serif;
+    border-radius: 5px;
+    padding: 5px;
+    cursor: pointer;
+  }
+
+.arrow-button {
+    width: 50px; /* Defina o tamanho desejado para o botão */
+    height: 50px; /* Defina o tamanho desejado para o botão */
+    border-radius: 50%; /* Torna o botão circular */
+    background-color: transparent; /* Cor de fundo do botão */
+    border: 2px solid #A9A9A9; /* Remove a borda do botão */
+    position: absolute; /* Posicionamento absoluto */
+    right: 20px; /* Distância do lado direito do modal */
+    top: 50%; /* Posicionamento vertical no meio do modal */
+    transform: translateY(-50%); /* Centraliza verticalmente */
+}
+
+.arrow-button::after {
+    content: ''; /* Cria um conteúdo pseudo-elemento */
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent; /* Tamanho e cor da seta */
+    border-bottom: 10px solid transparent; /* Tamanho e cor da seta */
+    border-left: 15px solid #A9A9A9; /* Tamanho e cor da seta */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(0deg); /* Posiciona a seta e a rotaciona */
+}
+
+.correct-button,
+.incorrect-button {
+    margin-top: 20px;
+    margin-left: 20px;
+    padding: 10px 60px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.correct-button {
+    background-color: green;
+    color: white;
+}
+
+.incorrect-button {
+    background-color: red;
+    color: white;
+}

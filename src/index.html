@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tela de Inicio - Projeto Flashcards</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+
+    <script src ="https://www.gstatic.com/firebasejs/10.12.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.1/firebase-analytics.js"></script>
+
+</head>
+<body>
+    <div class="container">
+        <div class="content-box" id="content-box">
+            <h1>Bem-vindo a Tela de Inicio - Projeto Flashcards</h1>
+            <button class="create-button">Criar</button>
+            <p>Este é um exemplo da nossa página inicial, onde irá conter os conjuntos</p>
+        </div>
+    </div>
+
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <button class="close-button" onclick="closeModal()">X</button>
+            <h2>Nova Janela - Projeto Flashcards</h2>
+            <form>
+                <div class="form-group">
+                    <label for="nome">Nome</label>
+                    <input type="text" id="nome" name="nome" placeholder="Digite o nome">
+                </div>
+                <div class="form-group">
+                    <label for="tag">Descrição</label>
+                    <input type="text" id="tag" name="tag" placeholder="Digite a descrição">
+                </div>
+            </form>
+            <button class="save-button">Salvar</button>
+        </div>
+    </div>
+    <div id="pagination-container">
+        <button id="prev-page">Página Anterior</button>
+        <button id="next-page">Próxima Página</button>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
